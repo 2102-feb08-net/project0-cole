@@ -6,6 +6,8 @@ namespace Library
 {
     public class Inventory
     {
+        public int Id { get; private set; }
+
         public Dictionary<Product, int> Items { get; private set; }
 
         public Inventory()
