@@ -14,7 +14,6 @@ namespace Library
 
         public Order(Customer customer)
         {
-            Inventory = new Inventory();
 
             TimeCreated = DateTime.Now;
 
