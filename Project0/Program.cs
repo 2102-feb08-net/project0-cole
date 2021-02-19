@@ -1,6 +1,9 @@
 ﻿using System;
-using Library;
 using UI;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
+using Microsoft.Extensions.Logging;
+using SqlData;
 
 namespace Project0
 {
@@ -8,7 +11,12 @@ namespace Project0
     {
         static void Main(string[] args)
         {
-            App.StartApp();
+            
+
+            var customer = context.Customers.FirstOrDefaultAsync(x => x.FirstName.Contains("co")).Result;
+
+
+            Console.WriteLine(customer.FirstName);
 
         }
     }
