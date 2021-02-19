@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Library\Library.csproj" />
+    <ProjectReference Include="..\Project0\Project0.csproj" />
+    <ProjectReference Include="..\SQLDataAccess\SQLDataAccess.csproj" />
   </ItemGroup>
 
 </Project>
