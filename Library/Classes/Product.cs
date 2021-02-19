@@ -12,17 +12,14 @@ namespace Library
 
         public decimal Price { get; private set; }
 
-        public Product(int Id, string productName, decimal price)
+        public Product(string productName, decimal price)
         {
-            ValidateId(Id);
 
             ValidateName(productName);
             
             ValidatePrice(price);
 
             Price = price;
-
-            this.Id = Id;
 
             ProductName = productName;
         }

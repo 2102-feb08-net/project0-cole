@@ -8,11 +8,11 @@ namespace Library
     {
         public int Id { get; private set; }
         public string Location { get; private set; }
-        public Inventory Inventory { get; private set; }
+        public string PhoneNumber { get; private set; }
 
-        public StoreLocation(string location)
+        public StoreLocation(string location, string PhoneNumber)
         {
-            Inventory = new Inventory();
+
 
             ValidateLocation(location);
         }
