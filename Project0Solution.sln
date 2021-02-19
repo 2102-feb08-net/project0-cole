@@ -9,12 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibrary", "XUnitTestProject1\TestLibrary.csproj", "{8E6BA86A-6524-4924-9D15-25FB98D756EA}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataAccess", "DataAccess\DataAccess.sqlproj", "{CED94193-E9FA-4A16-8464-75718E580482}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Description = 
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4B7D3777-3168-4729-A081-266770671DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -29,12 +28,6 @@ Global
 		{8E6BA86A-6524-4924-9D15-25FB98D756EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E6BA86A-6524-4924-9D15-25FB98D756EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E6BA86A-6524-4924-9D15-25FB98D756EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CED94193-E9FA-4A16-8464-75718E580482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CED94193-E9FA-4A16-8464-75718E580482}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CED94193-E9FA-4A16-8464-75718E580482}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{CED94193-E9FA-4A16-8464-75718E580482}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CED94193-E9FA-4A16-8464-75718E580482}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CED94193-E9FA-4A16-8464-75718E580482}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
