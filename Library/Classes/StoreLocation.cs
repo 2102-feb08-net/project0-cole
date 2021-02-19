@@ -7,21 +7,34 @@ namespace Library
     public class StoreLocation
     {
         public int Id { get; private set; }
-        public string Location { get; private set; }
+        public string City { get; private set; }
+        public string State { get; private set; }
+        public string Address { get; private set; }
         public string PhoneNumber { get; private set; }
 
-        public StoreLocation(string location, string PhoneNumber)
+        public StoreLocation(string city, string state, string address, string phoneNumber)
         {
+            ValidateLength(city,state,address,phoneNumber);
 
+            City = city;
 
-            ValidateLocation(location);
+            State = state;
+
+            Address = address;
+
+            PhoneNumber = phoneNumber;
+
+            
         }
 
-        private void ValidateLocation(string location)
+        private void ValidateLength(params string[] names)
         {
-            if(location.Length > 100)
+            foreach (var name in names)
             {
-                throw new ArgumentException("Location name too long");
+                if (name.Length > 100)
+                {
+                    throw new ArgumentException("Location name too long");
+                }
             }
         }
 

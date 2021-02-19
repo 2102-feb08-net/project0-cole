@@ -8,11 +8,23 @@ namespace Library
     {
         public int Id { get; private set; }
 
-        public Dictionary<Product, int> Items { get; private set; }
+        public int StoreId { get; private set; }
 
-        public Inventory()
+        public int ProductId { get; private set; }
+
+        public int Quantity { get; private set; }
+
+        public Inventory(int storeId, int productId, int quantity)
         {
-            Items = new Dictionary<Product, int>();
+            StoreId = storeId;
+
+            ProductId = productId;
+
+            ValidateReasonableQuantity(quantity);
+
+            quantity = Quantity;
+
+
         }
 
         private void ValidateReasonableQuantity(int quantity)
@@ -27,70 +39,31 @@ namespace Library
         {
             ValidateReasonableQuantity(quantity);
 
-            if (Items.ContainsKey(product))
-            {
-                Items[product] += quantity;
-            }
-            else
-            {
-                Items.Add(product, quantity);
-            }
 
             return true;
         }
-        public bool RemoveItem(Product product)
+        public bool RemoveItem(int productId, int storeId, int quantity)
         {
 
             // returns false if the key does not exist within the diction
 
-            if (!Items.ContainsKey(product))
-            {
-                return false;
-            }
+            return false;
 
-            Items.Remove(product);
-
-            return true;
         }
 
-        public bool RemoveItemQuantity(Product product, int quantity)
+        public bool RemoveItemQuantity(int productId, int storeId, int quantity)
         {
 
             // returns false if the key does not exist within the diction
 
-            if (!Items.ContainsKey(product))
-            {
-                return false;
-            }
+            return false;
 
-            //
-
-            int remainingquantity = Items[product] - quantity;
-
-            if (remainingquantity > 0)
-            {
-                Items[product] = remainingquantity;
-
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
         }
 
         public int GetQuantity(Product product)
         {
 
-            if (Items.ContainsKey(product))
-            {
-                return 0;
-            }
-
-            int currentquantity = Items[product];
-
-            return currentquantity;
+            return 0;
 
         }
     }
