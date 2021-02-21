@@ -11,14 +11,36 @@ namespace Project0
     {
         static void Main(string[] args)
         {
-           var disposables = new Disposables();
+           using var disposables = new Disposables();
 
             var context = disposables.getContext();
 
             Repository repository = new Repository(context);
 
-            Console.WriteLine(repository.GetCustomerById(1).FirstName);
+            AppUI(repository);
     
+
+        }
+        public static void AppUI(Repository repository)
+        {
+
+            while (true)
+            {
+                Console.WriteLine("c:  Manage Customers.");
+                Console.WriteLine("i:  Manage Store Inventory.");
+                Console.WriteLine("o:  Manage Orders.");
+                Console.WriteLine("s:  Save Data.");
+                Console.WriteLine("q: Quit Application");
+                Console.WriteLine();
+                Console.Write("Please Enter a Valid Character to Select\n\n");
+                string userinput = Console.ReadLine();
+
+
+
+
+                Console.WriteLine();
+
+            }
 
         }
     }
