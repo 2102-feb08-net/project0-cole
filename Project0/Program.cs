@@ -11,12 +11,14 @@ namespace Project0
     {
         static void Main(string[] args)
         {
-            
+           var disposables = new Disposables();
 
-            var customer = context.Customers.FirstOrDefaultAsync(x => x.FirstName.Contains("co")).Result;
+            var context = disposables.getContext();
 
+            Repository repository = new Repository(context);
 
-            Console.WriteLine(customer.FirstName);
+            Console.WriteLine(repository.GetCustomerById(1).FirstName);
+    
 
         }
     }
