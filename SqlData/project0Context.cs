@@ -18,6 +18,9 @@ namespace SqlData
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Inventory> Inventories { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderLine> OrderLines { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreLocation> StoreLocations { get; set; }
 
@@ -36,6 +39,56 @@ namespace SqlData
                 entity.Property(e => e.LastName)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Inventory>(entity =>
+            {
+                entity.ToTable("Inventory", "proj0");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Inventories)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Inventory__Produ__6FE99F9F");
+
+                entity.HasOne(d => d.Store)
+                    .WithMany(p => p.Inventories)
+                    .HasForeignKey(d => d.StoreId)
+                    .HasConstraintName("FK__Inventory__Store__70DDC3D8");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.ToTable("Orders", "proj0");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Orders__Customer__73BA3083");
+
+                entity.HasOne(d => d.StoreLocation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.StoreLocationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Orders__StoreLoc__75A278F5");
+            });
+
+            modelBuilder.Entity<OrderLine>(entity =>
+            {
+                entity.ToTable("OrderLine", "proj0");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderLines)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderLine__Order__71D1E811");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.OrderLines)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderLine__Produ__72C60C4A");
             });
 
             modelBuilder.Entity<Product>(entity =>
