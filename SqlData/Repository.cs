@@ -9,19 +9,21 @@ namespace SqlData
 {
     public class Repository { 
 
+        private readonly project0Context _context;
 
-        private  project0Context _context;
         public Repository(project0Context context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public Library.Customer GetCustomerById(int id)
+        public void Customer(Library.Customer businesscustomer)
         {
-           
-            var customer = _context.Customers.Find(id);
 
-            return new Library.Customer(customer.FirstName, customer.LastName);
+            // ID left at default 0
+            Customer customer = new Customer() { FirstName = businesscustomer.FirstName, LastName = businesscustomer.LastName };
+
+
+            _context.Add(customer);
         }
 
 

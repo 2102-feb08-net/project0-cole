@@ -33,12 +33,36 @@ namespace Project0
                 Console.WriteLine("q: Quit Application");
                 Console.WriteLine();
                 Console.Write("Please Enter a Valid Character to Select\n\n");
+
                 string userinput = Console.ReadLine();
 
-
-
-
                 Console.WriteLine();
+
+                if (userinput == "c")
+                {
+                    ManageCustomersUI.DisplayOptions();
+                }
+                else if(userinput == "i")
+                {
+                    Console.WriteLine("Manage Store Inventory");
+                }
+                else if (userinput == "o")
+                {
+                    Console.WriteLine("Manage Orders");
+                }
+                else if (userinput == "l")
+                {
+                    Console.WriteLine("Load Data");
+                }
+                else if (userinput == "s")
+                {
+                    Console.WriteLine("Save Data");
+                }
+                else if (userinput == "q")
+                {
+                    break;
+                }
+
 
             }
 
