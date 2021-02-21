@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace UI
 {
     public static class ManageCustomersUI
     {
-        public static void DisplayOptions()
+        public static void DisplayOptions(Repository repository)
         {
 
             while (true)
@@ -27,6 +28,18 @@ namespace UI
                 {
                     Console.WriteLine("Please Enter The Customers First Name\n");
                     string firstname = Console.ReadLine();
+                    Console.WriteLine("Please Enter The Customers Last Name\n");
+                    string lastname = Console.ReadLine();
+                    try
+                    {
+                        Library.Customer customer = new Library.Customer(firstname, lastname);
+                    }
+                    catch (ArgumentException exception)
+                    {
+                        Console.WriteLine(exception.Message);
+                    }
+
+                    
                 }
             }
         }

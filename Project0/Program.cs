@@ -40,7 +40,7 @@ namespace Project0
 
                 if (userinput == "c")
                 {
-                    ManageCustomersUI.DisplayOptions();
+                    ManageCustomersUI.DisplayOptions(repository);
                 }
                 else if(userinput == "i")
                 {
