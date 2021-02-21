@@ -56,7 +56,14 @@ namespace Project0
                 }
                 else if (userinput == "s")
                 {
-                    Console.WriteLine("Save Data");
+                    if (repository.SaveChanges())
+                    {
+                        Console.WriteLine("Successfully Saved Data to Database");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Something went wrong");
+                    }
                 }
                 else if (userinput == "q")
                 {

@@ -33,14 +33,31 @@ namespace UI
                     try
                     {
                         Library.Customer customer = new Library.Customer(firstname, lastname);
+                        if (repository.AddCustomer(customer))
+                        {
+                            Console.WriteLine("Successfully added Customer");
+                            Console.WriteLine("Remember to save to lock in changes.");
+                        }
+
                     }
                     catch (ArgumentException exception)
                     {
+                        Console.WriteLine("Could not Create Customer");
                         Console.WriteLine(exception.Message);
                     }
 
-                    
                 }
+
+                else if (userinput == "q")
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Returning to Main Menu\n");
+                    break;
+                }
+
+
+
+
             }
         }
 

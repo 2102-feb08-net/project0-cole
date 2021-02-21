@@ -16,7 +16,7 @@ namespace SqlData
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public void Customer(Library.Customer businesscustomer)
+        public bool AddCustomer(Library.Customer businesscustomer)
         {
 
             // ID left at default 0
@@ -24,9 +24,16 @@ namespace SqlData
 
 
             _context.Add(customer);
+
+            return true;
         }
 
+        public bool SaveChanges()
+        {
+            _context.SaveChanges();
 
+            return true;
+        }
 
 
     }
