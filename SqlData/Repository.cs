@@ -28,6 +28,18 @@ namespace SqlData
             return true;
         }
 
+        public bool AddOrder(Library.Order businessorder)
+        {
+
+            // ID left at default 0
+
+            Order order = new Order() { CustomerId = businessorder.CustomerId, StoreLocationId = businessorder.StoreId, TimeCreated = businessorder.TimeCreated };
+
+            _context.Add(order);
+
+            return true;
+        }
+
         public bool AddProduct(Library.Product businessproduct)
         {
 

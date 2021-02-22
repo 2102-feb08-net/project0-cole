@@ -13,10 +13,10 @@ namespace Library
         public Customer Customer { get; private set; }
         public Inventory Inventory { get; private set; }
 
-        public Order(int id, int customerid, int storeid, DateTime timecreated)
+        public Order(int customerid, int storeid, DateTime timecreated, int id = 0)
         {
 
-            TimeCreated = timecreated;
+            Id = id;
 
             CustomerId = customerid;
 
