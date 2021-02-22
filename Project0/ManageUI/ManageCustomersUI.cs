@@ -32,7 +32,7 @@ namespace UI
                     string lastname = Console.ReadLine();
                     try
                     {
-                        Library.Customer customer = new Library.Customer(firstname, lastname);
+                        Library.Customer customer = new Library.Customer(0,firstname, lastname);
                         if (repository.AddCustomer(customer))
                         {
                             Console.WriteLine("Successfully added Customer");
