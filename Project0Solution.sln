@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibrary", "XUnitTestProject1\TestLibrary.csproj", "{8E6BA86A-6524-4924-9D15-25FB98D756EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlData", "SqlData\SqlData.csproj", "{7C1C2695-5023-4AE8-80B2-6198CEC9BAA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlData", "SqlData\SqlData.csproj", "{7C1C2695-5023-4AE8-80B2-6198CEC9BAA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
