@@ -15,7 +15,7 @@ namespace UI
             while (true)
             {
                 Console.WriteLine("You are now viewing the Order Management Menu, Please Choose Another Key To Select An Options");
-                Console.WriteLine();
+                Console.WriteLine("d: Vew Details of an Order");
                 Console.WriteLine("c: Create A New Order");
                 Console.WriteLine("q: To Return Back to the Main Menu");
 
@@ -83,6 +83,31 @@ namespace UI
                         Console.WriteLine(exception.Message);
                     }
 
+                }
+                else if (userinput == "d")
+                {
+                    Console.WriteLine("Please select the Id of an order you would like to view the details of\n");
+
+                    int orderid;
+
+                    while (true)
+                    {
+                        Console.WriteLine("Please Enter The Order Id\n");
+                        string orderidstring = Console.ReadLine();
+
+                        if (int.TryParse(orderidstring, out orderid))
+                        {
+                            break;
+                        }
+                        else if (orderidstring == "q")
+                        {
+                            break;
+                        }
+                    }
+
+                    
+
+                    break;
                 }
 
                 else if (userinput == "q")
