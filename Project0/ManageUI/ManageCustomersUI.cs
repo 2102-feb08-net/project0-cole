@@ -78,8 +78,38 @@ namespace UI
 
                 else if (userinput == "h")
                 {
+                   
                     Console.WriteLine();
-                    Console.WriteLine("Please enter the id of the customer whose order history you'd like to view.");
+                    Console.WriteLine("Please enter the id of the customer whose order history you'd like to view.\n");
+                    int customerid;
+
+                    while (true)
+                    {
+                        string customeridstring = Console.ReadLine();
+
+                        if (int.TryParse(customeridstring,out customerid))
+                        {
+                            break;
+                        }
+
+                        Console.WriteLine("Value must be an integer");
+                    }
+
+                    var orders = repository.GetOrderByCustomerId(customerid);
+
+                    var customer = repository.GetCustomerById(customerid);
+
+                    int count = orders.Count;
+
+                    Console.WriteLine($"\n We found {count} results for you from {customer.FirstName}, {customer.LastName} (ID:{customer.Id})\n");
+
+                    if(count > 0)
+                    {
+                        foreach (var order in orders)
+                        {
+                            Console.WriteLine($"Order Id:{order.Id} -- Customer with Id:{order.CustomerId} took an order from store with Id:{order.StoreId} at {order.TimeCreated}\n");
+                        }
+                    };
                 }
 
                 else if (userinput == "q")
