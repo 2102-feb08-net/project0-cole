@@ -48,7 +48,7 @@ namespace SqlData
 
             foreach (var result in results)
             {
-                customers.Add(new Library.Customer(result.Id, result.FirstName, result.LastName));
+                customers.Add(new Library.Customer(result.FirstName, result.LastName, result.Id));
             }
 
             return customers;

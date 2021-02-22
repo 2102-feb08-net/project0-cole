@@ -21,7 +21,7 @@ namespace UI
 
             try
             {
-                Customer customer = new Customer(0,firstname, lastname);
+                Customer customer = new Customer(firstname, lastname);
             }
             catch (Exception)
             {

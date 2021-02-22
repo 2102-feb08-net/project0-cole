@@ -19,6 +19,7 @@ namespace UI
                 Console.WriteLine();
                 Console.WriteLine("c: To Create A New Customer");
                 Console.WriteLine("s: To Search A Customer By Name");
+                Console.WriteLine("h: To Display History of A Customer");
                 Console.WriteLine("q: To Return Back to the Main Menu");
                 Console.WriteLine();
 
@@ -32,7 +33,7 @@ namespace UI
                     string lastname = Console.ReadLine();
                     try
                     {
-                        Library.Customer customer = new Library.Customer(0,firstname, lastname);
+                        Library.Customer customer = new Library.Customer(firstname, lastname);
                         if (repository.AddCustomer(customer))
                         {
                             Console.WriteLine("Successfully added Customer");
@@ -58,7 +59,7 @@ namespace UI
                     Console.WriteLine("Last Name:");
                     string searchlastname = Console.ReadLine();
 
-                    var customers = repository.SearchCustomers(searchfirstname,searchlastname);
+                    var customers = repository.SearchCustomers(searchfirstname, searchlastname);
 
                     if (customers.Count > 0)
                     {
@@ -73,6 +74,12 @@ namespace UI
                     Console.WriteLine();
 
 
+                }
+
+                else if (userinput == "h")
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Please enter the id of the customer whose order history you'd like to view.");
                 }
 
                 else if (userinput == "q")

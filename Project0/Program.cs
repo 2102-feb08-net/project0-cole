@@ -32,7 +32,7 @@ namespace Project0
                 Console.WriteLine("s:  Save Data.");
                 Console.WriteLine("q: Quit Application");
                 Console.WriteLine();
-                Console.Write("Please Enter a Valid Character to Select\n\n");
+                Console.Write("Please Enter a Valid Character to Continue\n\n");
 
                 string userinput = Console.ReadLine();
 
@@ -58,7 +58,7 @@ namespace Project0
                 {
                     if (repository.SaveChanges())
                     {
-                        Console.WriteLine("Successfully Saved Data to Database");
+                        Console.WriteLine("--Successfully Saved Data to Database!\n");
                     }
                     else
                     {

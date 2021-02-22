@@ -6,18 +6,23 @@ namespace Library
 {
     public class Order 
     {
-
-        public Dictionary<Product, int> ProductQuantities { get; }
+        public int Id { get; private set; }
+        public int StoreId { get; private set; }
+        public int CustomerId { get; private set; }
         public DateTime TimeCreated { get; private set; }
         public Customer Customer { get; private set; }
         public Inventory Inventory { get; private set; }
 
-        public Order(Customer customer)
+        public Order(int id, int customerid, int storeid, DateTime timecreated)
         {
 
-            TimeCreated = DateTime.Now;
+            TimeCreated = timecreated;
 
-            Customer = customer;
+            CustomerId = customerid;
+
+            StoreId = storeid;
+
+            TimeCreated = timecreated;
 
             
         }
