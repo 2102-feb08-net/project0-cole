@@ -10,7 +10,7 @@ namespace Library
 
         public string LastName { get; private set; }
 
-        public Customer(string firstName, string lastName)
+        public Customer(int id,string firstName, string lastName)
         {
             string validfirstname = ValidateAndFormatName(firstName.Trim());
 
@@ -19,6 +19,8 @@ namespace Library
             FirstName = validfirstname;
 
             LastName = validlastname;
+
+            Id = id;
         }
 
         public static string ValidateAndFormatName(string name)

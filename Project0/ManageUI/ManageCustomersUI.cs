@@ -47,6 +47,33 @@ namespace UI
                     }
 
                 }
+                else if (userinput == "s")
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Enter a First or Last Name you would like to search for.\n");
+
+                    Console.WriteLine("First Name:");
+                    string searchfirstname = Console.ReadLine();
+
+                    Console.WriteLine("Last Name:");
+                    string searchlastname = Console.ReadLine();
+
+                    var customers = repository.SearchCustomers(searchfirstname,searchlastname);
+
+                    if (customers.Count > 0)
+                    {
+                        Console.WriteLine($"We've recieved {customers.Count} results for you master.\n");
+                    }
+
+                    foreach (var customer in customers)
+                    {
+                        Console.WriteLine($"ID:{customer.Id} {customer.FirstName},{customer.LastName}");
+                    }
+
+                    Console.WriteLine();
+
+
+                }
 
                 else if (userinput == "q")
                 {
