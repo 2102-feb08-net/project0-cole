@@ -12,9 +12,16 @@ namespace Library
         public string Address { get; private set; }
         public string PhoneNumber { get; private set; }
 
-        public StoreLocation(string city, string state, string address, string phoneNumber)
+        public StoreLocation(string city, string state, string address, string phoneNumber, int id = 0)
         {
-            ValidateLength(city,state,address,phoneNumber);
+
+            string[] checklength = { city, state, phoneNumber,address };
+
+            string[] onlyletters = { city, state };
+
+            ValidateLength(50,checklength);
+
+            Id = id;
 
             City = city;
 
@@ -22,20 +29,37 @@ namespace Library
 
             Address = address;
 
-            PhoneNumber = phoneNumber;
+            PhoneNumber = Formatter.FormatPhoneNumber(phoneNumber);
 
             
         }
 
-        private void ValidateLength(params string[] names)
+        private void ValidateLength(int length, params string[] names)
         {
             foreach (var name in names)
             {
-                if (name.Length > 100)
+                if (name.Length > length)
                 {
                     throw new ArgumentException("Location name too long");
                 }
             }
+        }
+
+        private void ValidateOnlyLetters(params string[] names)
+        {
+            foreach(var test in names)
+            {
+                foreach (var letter in test)
+                {
+                    if (!char.IsLetterOrDigit(letter))
+                    {
+                        throw new ArgumentException("Character must be a letter");
+                    }
+
+                }
+
+            }
+
         }
 
 

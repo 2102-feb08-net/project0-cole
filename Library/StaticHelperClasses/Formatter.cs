@@ -29,5 +29,22 @@ namespace Library
 
             return new string(nameletters);
         }
+
+        public static string FormatPhoneNumber(string phoneNumber)
+        {
+            string formattedNumber = "";
+       
+            foreach (char letter in phoneNumber)
+            {
+                if (char.IsDigit(letter))
+                {
+                    formattedNumber = formattedNumber + letter;
+                }
+            }
+
+            return formattedNumber;
+        }
+
+
     }
 }
