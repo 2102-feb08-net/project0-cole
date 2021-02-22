@@ -27,8 +27,9 @@ namespace Project0
             while (true)
             {
                 Console.WriteLine("c:  Manage Customers.");
-                Console.WriteLine("i:  Manage Store Inventory.");
+                Console.WriteLine("l:  Manage Store Locations.");
                 Console.WriteLine("o:  Manage Orders.");
+                Console.WriteLine("p:  Manage Products.");
                 Console.WriteLine("s:  Save Data.");
                 Console.WriteLine("q: Quit Application");
                 Console.WriteLine();
@@ -42,13 +43,17 @@ namespace Project0
                 {
                     ManageCustomersUI.DisplayOptions(repository);
                 }
-                else if(userinput == "i")
+                else if (userinput == "p")
                 {
-                    Console.WriteLine("Manage Store Inventory");
+                    ManageProductUI.DisplayOptions(repository);
+                }
+                else if(userinput == "l")
+                {
+                    ManageStoreLocationsUI.DisplayOptions(repository);
                 }
                 else if (userinput == "o")
                 {
-                    Console.WriteLine("Manage Orders");
+                    ManageOrderUI.DisplayOptions(repository);
                 }
                 else if (userinput == "l")
                 {

@@ -28,6 +28,34 @@ namespace SqlData
             return true;
         }
 
+        public bool AddProduct(Library.Product businessproduct)
+        {
+
+            // ID left at default 0
+            Product product = new Product() { Id = businessproduct.Id, ProductName = businessproduct.ProductName,Price=businessproduct.Price };
+
+            _context.Add(product);
+
+            return true;
+        }
+
+        public bool AddStoreLocation(Library.StoreLocation businessstorelocation)
+        {
+
+            // ID left at default 0
+            StoreLocation storeLocation = new StoreLocation() 
+            { 
+                Id = businessstorelocation.Id, 
+                Address = businessstorelocation.Address, 
+                City = businessstorelocation.City, 
+                State = businessstorelocation.State,
+                PhoneNumber = businessstorelocation.PhoneNumber
+            };
+
+            _context.Add(storeLocation);
+
+            return true;
+        }
 
         public List<Library.Customer> SearchCustomers(string firstname, string lastname)
         {

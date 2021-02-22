@@ -12,7 +12,7 @@ namespace Library
 
         public decimal Price { get; private set; }
 
-        public Product(string productName, decimal price)
+        public Product(string productName, decimal price, int id = 0)
         {
 
             ValidateName(productName);
@@ -22,6 +22,8 @@ namespace Library
             Price = price;
 
             ProductName = productName;
+
+            Id = id;
         }
 
         private void ValidatePrice(decimal price)
