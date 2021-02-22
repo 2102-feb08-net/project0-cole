@@ -101,7 +101,7 @@ namespace UI
 
                     int count = orders.Count;
 
-                    Console.WriteLine($"\n We found {count} results for you from {customer.FirstName}, {customer.LastName} (ID:{customer.Id})\n");
+                    Console.WriteLine($"\nWe found {count} results for you from {customer.FirstName}, {customer.LastName}\n");
 
                     if(count > 0)
                     {

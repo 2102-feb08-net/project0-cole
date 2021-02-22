@@ -94,6 +94,22 @@ namespace SqlData
 
         }
 
+        public List<Library.Order> GetOrderByStoreId(int storeid)
+        {
+            List<Library.Order> orders = new List<Library.Order>();
+
+            var results = _context.Orders.Where(x => x.StoreLocationId == storeid);
+
+            foreach (var result in results)
+            {
+                orders.Add(new Library.Order(result.CustomerId,result.StoreLocationId,result.TimeCreated.Value,result.Id));
+            }
+
+            return orders;
+
+        }
+
+
         public List<Library.Customer> SearchCustomers(string firstname, string lastname)
         {
             ///Quick check if a search is null or whitespace, if it is, it sets the string to xxx to avoid recieving all entries back.

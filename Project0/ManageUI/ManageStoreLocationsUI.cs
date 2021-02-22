@@ -16,6 +16,7 @@ namespace UI
             {
                 Console.WriteLine("You are now viewing the Store Location Management Menu");
                 Console.WriteLine();
+                Console.WriteLine("h: View a Store Location's Order History");
                 Console.WriteLine("c: Create a Store Location");
                 Console.WriteLine("q: To Return Back to the Main Menu");
 
@@ -55,6 +56,41 @@ namespace UI
                     }
 
                 }
+                else if (userinput == "h")
+                {
+
+                    Console.WriteLine();
+                    Console.WriteLine("Please enter the id of the store whose order history you'd like to view.\n");
+                    int storeid;
+
+                    while (true)
+                    {
+                        string storeidstring = Console.ReadLine();
+
+                        if (int.TryParse(storeidstring, out storeid))
+                        {
+                            break;
+                        }
+
+                        Console.WriteLine("Value must be an integer");
+                    }
+
+                    var orders = repository.GetOrderByStoreId(storeid);
+
+
+                    int count = orders.Count;
+
+                    Console.WriteLine($"\nWe found {count} results for this store\n");
+
+                    if (count > 0)
+                    {
+                        foreach (var order in orders)
+                        {
+                            Console.WriteLine($"Order Id:{order.Id} Customer with Id:{order.CustomerId} took an order here at {order.TimeCreated}\n");
+                        }
+                    };
+                }
+
                 else if (userinput == "q")
                 {
                     Console.WriteLine();
