@@ -19,15 +19,19 @@ namespace Library
         /// <returns> 
         /// An allowable transaction
         /// </returns>
-        public static Transaction AttemptTransaction(Inventory storeinventory,Inventory orderinventory ,int productid,int customerid,int quantity,int storelocationid)
+        public static Transaction AttemptTransaction(Inventory storeinventory,Inventory orderinventory ,int productid ,int quantity,OrderDetails orderDetails)
         {
+            if (!storeinventory.Stock.ContainsKey(productid))
+            {
 
-            if (storeinventory.Stock[productid] < quantity)
+                throw new ArgumentException($"The store does not contain item with id {productid}");
+            }
+            else if (storeinventory.Stock[productid] < quantity)
             {
                 throw new ArgumentException($"But master, this store location does not have enough inventory, It only has {storeinventory.Stock[productid]} items, and you tried to add {quantity} to the order.");
             }
 
-            if (quantity < 0)
+            else if (quantity < 0)
             {
                 if (orderinventory.Stock[productid] < -quantity)
                 {
@@ -35,8 +39,7 @@ namespace Library
                 }
             }
 
-
-            Transaction transaction = new Transaction(customerid,productid,storelocationid,quantity);
+            Transaction transaction = new Transaction(productid,quantity,orderDetails);
 
             return transaction;
         }

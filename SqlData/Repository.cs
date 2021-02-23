@@ -195,7 +195,7 @@ namespace SqlData
 
         public Library.Inventory HandleTransaction(Library.Transaction transaction)
         {
-            var result = _context.OrderLines.Where(x => x.ProductId == transaction.ProductId && x.Order.CustomerId == transaction.CustomerId).FirstOrDefault();
+            var result = _context.OrderLines.Where(x => x.ProductId == transaction.ProductId && x.Order.CustomerId == transaction.OrderDetails.Customer.Id).FirstOrDefault();
 
             if (result != null)
             {
@@ -208,6 +208,17 @@ namespace SqlData
                 Library.Inventory updatedorder = GetOrderInventoryByID(result.OrderId);
 
                 return updatedorder;
+            }
+            else
+            {
+                OrderLine orderLine = new OrderLine()
+                {
+                    OrderId = transaction.OrderDetails.OrderId,
+                    ProductId = transaction.ProductId,
+                    Quantity = transaction.Quantity,
+                };
+
+                _context.OrderLines.Add(orderLine);
             }
 
             Console.WriteLine("Could Not Find A Result");

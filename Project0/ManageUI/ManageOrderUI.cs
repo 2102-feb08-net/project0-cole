@@ -160,11 +160,10 @@ namespace UI
                         Console.WriteLine("Please Enter An Integer\n");
                     }
 
-                    Library.Transaction transaction;
 
                     try
                     {
-                        transaction = Library.TransactionProcessor.AttemptTransaction(storeinventory, orderinventory, productid, orderDetails.Customer.Id, quantity, orderDetails.StoreLocation.Id);
+                        Library.Transaction transaction = Library.TransactionProcessor.AttemptTransaction(storeinventory, orderinventory, productid, quantity,orderDetails);
                         Library.Inventory updatedinventory = repository.HandleTransaction(transaction);
                         Console.WriteLine("\nHere is an updated inventory of the order for you\n");
                         updatedinventory.DisplayContents();

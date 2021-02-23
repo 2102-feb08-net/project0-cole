@@ -27,15 +27,19 @@ namespace Library
         /// product for this specific line of the order
         /// </summary>
         public int ProductId { get; private set; }
-        public Transaction(int customerid, int productId, int storelocationid,int quantity)
+        /// <summary>
+        /// Holds and OrderDetails object which will give us properties to view the customer and store location this is meant for.
+        /// </summary>
+        public OrderDetails OrderDetails { get; set; }
+        
+        public Transaction(int productId ,int quantity, OrderDetails orderDetails)
         {
-            CustomerId = customerid;
-
+   
             ProductId = productId;
 
-            LocationId = storelocationid;
-
             Quantity = quantity;
+
+            OrderDetails = orderDetails;
 
            
         }
