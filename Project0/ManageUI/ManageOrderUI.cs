@@ -102,10 +102,57 @@ namespace UI
                             break;
                         }
 
-                        Console.WriteLine("Please Enter Valid Int\n");
+                        Console.WriteLine("\nPlease Enter An Integer\n");
                     }
 
-                    Library.Inventory orderinventory = repository.GetOrderInventoryByID;
+
+                    Library.Inventory orderinventory = repository.GetOrderInventoryByID(orderid);
+
+
+                    Library.Inventory storeinventory = repository.GetStoreInventoryByID(orderid);
+
+
+                    Console.WriteLine("\nPlease Enter the Product Id\n");
+
+                    int productid;
+
+                    while (true)
+                    {
+
+                        string orderidstring = Console.ReadLine();
+
+                        if (int.TryParse(orderidstring, out productid))
+                        {
+                            break;
+                        }
+
+                        Console.WriteLine("\nPlease Enter An Integer\n");
+                    }
+
+                    Library.Product product = repository.GetProductById(productid);
+
+                    Console.WriteLine("Please enter how many you would like to add to the order.\n");
+
+                    int quantity;
+
+                    while (true)
+                    {
+
+                        string orderidstring = Console.ReadLine();
+
+                        if (int.TryParse(orderidstring, out quantity))
+                        {
+                            break;
+                        }
+
+                        Console.WriteLine("Please Enter An Integer\n");
+                    }
+
+
+
+                    Console.WriteLine(storeinventory.Stock[product]);
+
+
 
 
                     break;

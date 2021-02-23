@@ -6,11 +6,10 @@ namespace Library
 {
     public class Inventory
     {
-        public Dictionary<Product, int> Stock{ get; private set; }
+        public Dictionary<int , int> Stock { get; private set; } 
 
         public Inventory()
         {
-            Dictionary<Product, int> Stock = new Dictionary<Product, int>();
         }
 
         private void ValidateReasonableQuantity(int quantity)
@@ -21,11 +20,11 @@ namespace Library
             }
         }
 
-        public bool AddProductQuantity(Product product, int quantity)
+        public bool AddProductQuantity(int productid, int quantity)
         {
             ValidateReasonableQuantity(quantity);
 
-            Stock.Add(product,quantity);
+            this.Stock.Add(productid,quantity);
 
             return true;
         }

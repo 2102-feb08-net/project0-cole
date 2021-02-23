@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Library;
+using Microsoft.EntityFrameworkCore;
 
 namespace SqlData
 {
@@ -146,24 +147,33 @@ namespace SqlData
             {
                 Library.Product product = new Library.Product(result.Product.ProductName, result.Product.Price.Value, result.ProductId);
 
-                inventory.AddProductQuantity(product,result.Quantity);
+                inventory.AddProductQuantity(product.Id,result.Quantity);
 
             }
 
             return inventory;
         }
 
+        public Library.Product GetProductById(int id)
+        {
+
+            var result = _context.Products.Where(x => x.Id == id).FirstOrDefault();
+
+            Library.Product product = new Library.Product(result.ProductName,result.Price.Value,result.Id);
+
+            return product;
+        }
+
         public Library.Inventory GetOrderInventoryByID(int id)
         {
             Library.Inventory inventory = new Library.Inventory();
 
-            var results = _context.OrderLines.Where(x => x.OrderId == id);
+            var results = _context.OrderLines.Include(x=>x.Product).Where(x => x.OrderId == id);
 
             foreach (var result in results)
             {
-                Library.Product product = new Library.Product(result.Product.ProductName, result.Product.Price.Value, result.ProductId);
 
-                inventory.AddProductQuantity(product, result.Quantity);
+                inventory.AddProductQuantity(result.ProductId, result.Quantity);
 
             }
 
