@@ -154,6 +154,19 @@ namespace SqlData
             return inventory;
         }
 
+        public Library.OrderDetails GetOrderDetailsById(int id)
+        {
+            var result = _context.Orders.Include(x => x.StoreLocation).Include(x => x.Customer).Where(x => x.Id == id).FirstOrDefault();
+
+            Library.Customer customer = new Library.Customer(result.Customer.FirstName, result.Customer.LastName, result.CustomerId);
+
+            Library.StoreLocation storeLocation = new Library.StoreLocation(result.StoreLocation.City, result.StoreLocation.State, result.StoreLocation.Address, result.StoreLocation.PhoneNumber, result.StoreLocationId);
+
+            Library.OrderDetails details= new OrderDetails(result.Id, customer, storeLocation, result.TimeCreated.Value);
+
+            return details;
+        }
+
         public Library.Product GetProductById(int id)
         {
 

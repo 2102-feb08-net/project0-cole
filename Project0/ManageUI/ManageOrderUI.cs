@@ -105,9 +105,13 @@ namespace UI
                         Console.WriteLine("\nPlease Enter An Integer\n");
                     }
 
+                    Library.OrderDetails orderDetails= repository.GetOrderDetailsById(orderid);
+
+                    orderDetails.DisplayOrderDetails();
 
                     Library.Inventory orderinventory = repository.GetOrderInventoryByID(orderid);
 
+                    orderinventory.DisplayContent();
 
                     Library.Inventory storeinventory = repository.GetStoreInventoryByID(orderid);
 
@@ -148,9 +152,12 @@ namespace UI
                         Console.WriteLine("Please Enter An Integer\n");
                     }
 
+                    
+
+            
 
 
-                    Console.WriteLine(storeinventory.Stock[product]);
+                   
 
 
 
