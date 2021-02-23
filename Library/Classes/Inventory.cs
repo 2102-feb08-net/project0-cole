@@ -4,10 +4,18 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Acts as a container for either a store's inventory or the list of products on an order.  Allows you to add products and validates reasonable quantities.
+    /// </summary>
     public class Inventory
     {
+        /// <summary>
+        /// Contains a Product Key (int), with it's Value Quantity (int)
+        /// </summary>
         public Dictionary<int , int> Stock { get; private set; } 
-
+        /// <summary>
+        /// Initializes new Dictionary.
+        /// </summary>
         public Inventory()
         {
             Stock = new Dictionary<int, int>();
@@ -20,7 +28,9 @@ namespace Library
                 throw new ArgumentException("Unreasonable Quantity");
             }
         }
-
+        /// <summary>
+        /// Displays the product Id and Quantity of each Item in the inventory.
+        /// </summary>
         public void DisplayContent()
         {
             var keys = Stock.Keys;
@@ -36,7 +46,12 @@ namespace Library
             }
 
         }
-
+        /// <summary>
+        /// Adds a product id and given quantity to a dictionary of products and their quantities.
+        /// </summary>
+        /// <param name="productid"></param>
+        /// <param name="quantity"></param>
+        /// <returns></returns>
         public bool AddProductQuantity(int productid, int quantity)
         {
             ValidateReasonableQuantity(quantity);

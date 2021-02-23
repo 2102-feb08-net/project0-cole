@@ -4,12 +4,30 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Stores relevant information to one of the chain's store location
+    /// </summary>
     public class StoreLocation
     {
+        /// <summary>
+        /// Id from database
+        /// </summary>
         public int Id { get; private set; }
+        /// <summary>
+        /// City store is located in
+        /// </summary>
         public string City { get; private set; }
+        /// <summary>
+        /// State store is located in
+        /// </summary>
         public string State { get; private set; }
+        /// <summary>
+        /// Address Store is located at.
+        /// </summary>
         public string Address { get; private set; }
+        /// <summary>
+        /// Phone number to reach this location
+        /// </summary>
         public string PhoneNumber { get; private set; }
 
         public StoreLocation(string city, string state, string address, string phoneNumber, int id = 0)

@@ -2,11 +2,22 @@
 
 namespace Library
 {
+    /// <summary>
+    /// Purpose of this class is to both store and validate relavant information to customers.
+    /// </summary>
     public class Customer
     {
+        /// <summary>
+        /// Customers id, can not be set, only retrieved from database.
+        /// </summary>
         public int Id { get; private set; }
-
+        /// <summary>
+        /// Customer's First Name
+        /// </summary>
         public string FirstName { get; private set; }
+        /// <summary>
+        /// Customr's Last Name
+        /// </summary>
 
         public string LastName { get; private set; }
 
@@ -23,7 +34,13 @@ namespace Library
             Id = id;
         }
 
-        public static string ValidateAndFormatName(string name)
+        /// <summary>
+        /// Makes sure the name is only letters, and returns a formatted name with proper uppercase and whitespace trimmed.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>Formatted Name</returns>
+
+        private static string ValidateAndFormatName(string name)
 
         {
             // Checks whether the string is Null or Empty, throws an error if it is.
