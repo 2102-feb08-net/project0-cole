@@ -25,6 +25,11 @@ namespace Library
         {
             var keys = Stock.Keys;
 
+            if(keys.Count == 0)
+            {
+                Console.WriteLine("No items were found in this dictionary");
+            }
+
             foreach (var key in keys)
             {
                 Console.WriteLine($"Item with id {key} has quantity of {Stock[key]}");

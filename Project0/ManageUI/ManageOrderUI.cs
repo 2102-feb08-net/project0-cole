@@ -135,6 +135,10 @@ namespace UI
 
                     Library.Product product = repository.GetProductById(productid);
 
+                    Console.WriteLine("You selected the following item.");
+
+                    product.DisplayDetails();
+
                     Console.WriteLine("Please enter how many you would like to add to the order.\n");
 
                     int quantity;
@@ -152,15 +156,12 @@ namespace UI
                         Console.WriteLine("Please Enter An Integer\n");
                     }
 
-                    
+                    Library.Transaction transaction = Library.TransactionProcessor.AttemptTransaction(storeinventory, orderinventory, productid, orderDetails.Customer.Id, quantity,orderDetails.StoreLocation.Id);
 
-            
+                    Library.Inventory updatedinventory = repository.HandleTransaction(transaction);
 
-
+                    updatedinventory.DisplayContent();
                    
-
-
-
 
                     break;
                 }

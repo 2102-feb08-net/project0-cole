@@ -8,15 +8,26 @@ namespace Library
 {
     public static class TransactionProcessor
     {
-        public static void AttemptTransaction(Inventory inventory,int productid,int customerid,int quantity,int storelocationid)
+        public static Transaction AttemptTransaction(Inventory storeinventory,Inventory orderinventory ,int productid,int customerid,int quantity,int storelocationid)
         {
 
-            if (inventory.Stock[productid] < quantity)
+            if (storeinventory.Stock[productid] < quantity)
             {
-                throw new ArgumentException("Store location does not have enough inventory ");
+                throw new ArgumentException("Store location does not have enough inventory");
             }
 
-            Transaction transaction = new Transaction(customerid, productid, quantity);
+            if (quantity < 0)
+            {
+                if (orderinventory.Stock[productid] < -quantity)
+                {
+                    throw new ArgumentException("Can't remove more items than exist on the order");
+                }
+            }
+
+
+            Transaction transaction = new Transaction(customerid,productid,storelocationid,quantity);
+
+            return transaction;
         }
     }
 }

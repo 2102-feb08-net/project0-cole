@@ -57,5 +57,12 @@ namespace Library
                 throw new ArgumentException("This is a name, not a description");
             }
         }
+
+        public void DisplayDetails()
+        {
+
+            Console.WriteLine($"Id:{this.Id} Product Name: {this.ProductName} Price: {this.Price}\n");
+
+        }
     }
 }

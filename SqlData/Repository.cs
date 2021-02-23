@@ -193,6 +193,28 @@ namespace SqlData
             return inventory;
         }
 
+        public Library.Inventory HandleTransaction(Library.Transaction transaction)
+        {
+            var result = _context.OrderLines.Where(x => x.ProductId == transaction.ProductId && x.Order.CustomerId == transaction.CustomerId).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Quantity = result.Quantity + transaction.Quantity;
+
+                _context.SaveChanges();
+
+                Console.WriteLine("Transaction Successfully Occurred and Was Saved");
+
+                Library.Inventory updatedorder = GetOrderInventoryByID(result.OrderId);
+
+                return updatedorder;
+            }
+
+            Console.WriteLine("Could Not Find A Result");
+
+            return new Library.Inventory();
+        }
+
 
         public bool SaveChanges()
         {
