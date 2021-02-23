@@ -38,8 +38,7 @@ namespace Library
 
             char[] nameletters = name.ToCharArray();
 
-            nameletters.
-
+         
             for (int i = 0; i < nameletters.Length; i++)
             {
                 if (!char.IsLetter(nameletters[i]))

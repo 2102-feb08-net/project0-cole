@@ -135,6 +135,23 @@ namespace SqlData
             return customers;
         }
 
+        public Library.Inventory GetStoreInventoryByID(int id)
+        {
+            Library.Inventory inventory = new Library.Inventory();
+
+            var results = _context.Inventories.Where(x => x.StoreId == id);
+
+
+            foreach (var result in results)
+            {
+                Library.Product product = new Library.Product(result.Product.ProductName, result.Product.Price.Value, result.ProductId);
+
+                inventory.AddProductQuantity(product,result.Quantity);
+
+            }
+
+            return inventory;
+        }
 
         public bool SaveChanges()
         {

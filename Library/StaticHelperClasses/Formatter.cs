@@ -38,7 +38,7 @@ namespace Library
             {
                 if (char.IsDigit(letter))
                 {
-                    formattedNumber = formattedNumber + letter
+                    formattedNumber = formattedNumber + letter;
                 }
             }
 
