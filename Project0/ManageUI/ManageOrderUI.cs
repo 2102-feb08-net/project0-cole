@@ -9,6 +9,10 @@ namespace UI
 {
     public static class ManageOrderUI
     {
+        /// <summary>
+        /// Displays a menu of options for users to manage Orders, allows them to return back to main menu.  Data type is validated here
+        /// </summary>
+        /// <param name="repository"></param>
         public static void DisplayOptions(Repository repository)
         {
 

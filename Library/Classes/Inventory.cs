@@ -7,7 +7,7 @@ namespace Library
     /// <summary>
     /// Acts as a container for either a store's inventory or the list of products on an order.  Allows you to add products and validates reasonable quantities.
     /// </summary>
-    public class Inventory
+    public class Inventory : IInventoryManager
     {
         /// <summary>
         /// Contains a Product Key (int), with it's Value Quantity (int)
@@ -31,7 +31,7 @@ namespace Library
         /// <summary>
         /// Displays the product Id and Quantity of each Item in the inventory.
         /// </summary>
-        public void DisplayContent()
+        public void DisplayContents()
         {
             var keys = Stock.Keys;
 

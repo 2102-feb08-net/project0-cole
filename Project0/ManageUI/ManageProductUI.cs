@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace UI
 {
+    /// <summary>
+    /// Displays a menu of options for users to manage Products, allows them to return back to main menu.  Data type is validated here.  Products must be saved before changes are saved to data base, that's done from main menu.
+    /// </summary>
+    /// <param name="repository"></param>
     public static class ManageProductUI
     {
         public static void DisplayOptions(Repository repository)

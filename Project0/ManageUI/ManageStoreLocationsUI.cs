@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace UI
 {
+    /// <summary>
+    /// Allows users to Add a store location and view a store locations Order History
+    /// </summary>
     public static class ManageStoreLocationsUI
     {
         public static void DisplayOptions(Repository repository)

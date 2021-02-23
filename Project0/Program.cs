@@ -21,6 +21,10 @@ namespace Project0
     
 
         }
+        /// <summary>
+        /// Links users to the various menus for managing different things such as Customers,Orders,Products, and Store Location
+        /// </summary>
+        /// <param name="repository">repository with context to sqp data base</param>
         public static void AppUI(Repository repository)
         {
 

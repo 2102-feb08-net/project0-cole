@@ -10,6 +10,10 @@ namespace UI
 {
     public static class ManageCustomersUI
     {
+    /// <summary>
+    /// Displays a menu of options for users to manage customers, allows them to return back to main menu.  Data type is validated here
+    /// </summary>
+    /// <param name="repository"></param>
         public static void DisplayOptions(Repository repository)
         {
 

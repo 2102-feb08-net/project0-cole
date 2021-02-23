@@ -4,12 +4,13 @@ using System.Text;
 
 namespace Library
 {
+    /// <summary>
+    /// Interface for basic behavior of both order and store inventory
+    /// </summary>
     interface IInventoryManager
     {
-        bool AddItemQuantity(Product product, int quantity);
-        bool RemoveItem(Product product);
-        bool RemoveItemQuantity(Product product, int quantity);
-        int GetQuantity(Product product);
+        bool AddProductQuantity(int productid, int quantity);
+        void DisplayContents();
 
     }
 }
