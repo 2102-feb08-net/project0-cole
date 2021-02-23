@@ -153,6 +153,24 @@ namespace SqlData
             return inventory;
         }
 
+        public Library.Inventory GetOrderInventoryByID(int id)
+        {
+            Library.Inventory inventory = new Library.Inventory();
+
+            var results = _context.OrderLines.Where(x => x.OrderId == id);
+
+            foreach (var result in results)
+            {
+                Library.Product product = new Library.Product(result.Product.ProductName, result.Product.Price.Value, result.ProductId);
+
+                inventory.AddProductQuantity(product, result.Quantity);
+
+            }
+
+            return inventory;
+        }
+
+
         public bool SaveChanges()
         {
             _context.SaveChanges();

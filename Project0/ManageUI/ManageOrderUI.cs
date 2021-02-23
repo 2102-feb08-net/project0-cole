@@ -16,6 +16,7 @@ namespace UI
             {
                 Console.WriteLine("You are now viewing the Order Management Menu, Please Choose Another Key To Select An Options");
                 Console.WriteLine("d: Vew Details of an Order");
+                Console.WriteLine("a: Edit Item on Order");
                 Console.WriteLine("c: Create A New Order");
                 Console.WriteLine("q: To Return Back to the Main Menu");
 
@@ -84,6 +85,32 @@ namespace UI
                     }
 
                 }
+
+                else if (userinput == "a")
+                {
+                    Console.WriteLine("Please select the Id of an order you would like to edit\n");
+
+                    int orderid;
+
+                    while (true)
+                    {
+
+                        string orderidstring = Console.ReadLine();
+
+                        if (int.TryParse(orderidstring, out orderid))
+                        {
+                            break;
+                        }
+
+                        Console.WriteLine("Please Enter Valid Int\n");
+                    }
+
+                    Library.Inventory orderinventory = repository.GetOrderInventoryByID;
+
+
+                    break;
+                }
+
                 else if (userinput == "d")
                 {
                     Console.WriteLine("Please select the Id of an order you would like to view the details of\n");
