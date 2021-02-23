@@ -24,14 +24,14 @@ namespace Library
 
             if (storeinventory.Stock[productid] < quantity)
             {
-                throw new ArgumentException("Store location does not have enough inventory");
+                throw new ArgumentException($"But master, this store location does not have enough inventory, It only has {storeinventory.Stock[productid]} items, and you tried to add {quantity} to the order.");
             }
 
             if (quantity < 0)
             {
                 if (orderinventory.Stock[productid] < -quantity)
                 {
-                    throw new ArgumentException("Can't remove more items than exist on the order");
+                    throw new ArgumentException($"You attempted to remove {-quantity} items from this poor man's order, but he only has {orderinventory.Stock[productid]}");
                 }
             }
 
