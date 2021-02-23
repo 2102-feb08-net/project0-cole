@@ -31,13 +31,15 @@ namespace Library
         /// <summary>
         /// Displays the product Id and Quantity of each Item in the inventory.
         /// </summary>
-        public void DisplayContents()
+        public bool DisplayContents()
         {
             var keys = Stock.Keys;
 
             if(keys.Count == 0)
             {
                 Console.WriteLine("No items were found in this dictionary");
+
+                return false;
             }
 
             foreach (var key in keys)
@@ -45,6 +47,7 @@ namespace Library
                 Console.WriteLine($"Item with id {key} has quantity of {Stock[key]}");
             }
 
+            return true;
         }
         /// <summary>
         /// Adds a product id and given quantity to a dictionary of products and their quantities.

@@ -1,5 +1,6 @@
 ﻿using SqlData;
 using System;
+using Library;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,29 +97,50 @@ namespace UI
 
                     int orderid;
 
+                    OrderDetails orderDetails = new OrderDetails();
+
                     while (true)
                     {
-
-                        string orderidstring = Console.ReadLine();
-
-                        if (int.TryParse(orderidstring, out orderid))
+                        while (true)
                         {
-                            break;
+
+                            string orderidstring = Console.ReadLine();
+
+                            if (int.TryParse(orderidstring, out orderid))
+                            {
+                                break;
+                            }
+
+                            Console.WriteLine("\nPlease Enter An Integer\n");
+
+
                         }
 
-                        Console.WriteLine("\nPlease Enter An Integer\n");
+                        orderDetails = repository.GetOrderDetailsById(orderid);
+
+
+                        if(!Object.ReferenceEquals(orderDetails.Customer,null))
+                        {
+                            Console.WriteLine("\nOrder found good job! ;)\n");
+
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Order not found, need a valid Id that matches with an order.");
+                        }
+
+         
+
                     }
-
-                    Library.OrderDetails orderDetails= repository.GetOrderDetailsById(orderid);
-
-                    orderDetails.DisplayOrderDetails();
 
                     Library.Inventory orderinventory = repository.GetOrderInventoryByID(orderid);
 
-                    orderinventory.DisplayContents();
-
                     Library.Inventory storeinventory = repository.GetStoreInventoryByID(orderid);
 
+                    Console.WriteLine("\nHere is the current content of that order.\n");
+
+                    orderinventory.DisplayContents();
 
                     Console.WriteLine("\nPlease Enter the Product Id\n");
 

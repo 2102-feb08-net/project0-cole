@@ -34,6 +34,10 @@ namespace Library
         /// <param name="customer"></param>
         /// <param name="storeLocation"></param>
         /// <param name="timeCreated"></param>
+        public OrderDetails()
+        {
+           
+        }
         public OrderDetails(int orderId,Customer customer,StoreLocation storeLocation,DateTime timeCreated)
         {
             OrderId = orderId;
@@ -48,9 +52,16 @@ namespace Library
         /// <summary>
         /// Displays relevant Order information, such as customer,time, and location.
         /// </summary>
-        public void DisplayOrderDetails()
+        public bool DisplayOrderDetails()
         {
+            if(this.OrderId == 0)
+            {
+                Console.WriteLine("No details could be cound for this order, are you sure that Id exists?");
+                return false;
+            }
             Console.WriteLine($"ID:{this.OrderId} This order was created by {this.Customer.FirstName},{this.Customer.LastName} at a store located in {this.StoreLocation.City} {this.StoreLocation.State} on {this.TimeCreated}");
+
+            return true;
         }
     }
 }

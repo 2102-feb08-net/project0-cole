@@ -10,7 +10,7 @@ namespace Library
     interface IInventoryManager
     {
         bool AddProductQuantity(int productid, int quantity);
-        void DisplayContents();
+        bool DisplayContents();
 
     }
 }
