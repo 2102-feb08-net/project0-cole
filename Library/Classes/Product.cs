@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Library
@@ -46,12 +47,14 @@ namespace Library
 
         private void ValidateName(string name)
         {
+
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentException("Name can not be empty");
             }
 
-            if(name.Length > 100)
+
+            if(name.Length > 30)
             {
                 throw new ArgumentException("This is a name, not a description");
             }

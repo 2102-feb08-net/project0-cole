@@ -4,6 +4,9 @@ using Library;
 
 namespace XUnitTestProject1
 {
+    /// <summary>
+    /// Verifies that special characters in phone numbers are removed
+    /// </summary>
     public class FormatterUnitTest
     {
         [Fact]

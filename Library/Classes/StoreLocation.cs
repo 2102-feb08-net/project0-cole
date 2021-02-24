@@ -39,6 +39,8 @@ namespace Library
 
             ValidateLength(50,checklength);
 
+            ValidateOnlyLetters(onlyletters);
+
             Id = id;
 
             City = city;
@@ -63,11 +65,11 @@ namespace Library
             }
         }
 
-        private void ValidateOnlyLetters(params string[] names)
+        private void ValidateOnlyLetters(params string[] words)
         {
-            foreach(var test in names)
+            foreach(var word in words)
             {
-                foreach (var letter in test)
+                foreach (char letter in word)
                 {
                     if (!char.IsLetterOrDigit(letter))
                     {

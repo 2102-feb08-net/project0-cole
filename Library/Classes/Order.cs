@@ -23,23 +23,5 @@ namespace Library
 
 
         }
-
-        private int ValidateQuantity(int quantity)
-        {
-            //Checks for negative numbers and makes sure orders aren't unreasonably high (999) 
-            //Throws ArguementException Error if either of those are the case.
-
-            if (quantity <= 0)
-            {
-                throw new ArgumentException("Quantity must be greater than zero.");
-            }
-
-            if (quantity > 999)
-            {
-                throw new ArgumentException("Quantity is unreasonably high.");
-            }
-
-            return quantity;
-        }
     }
 }
