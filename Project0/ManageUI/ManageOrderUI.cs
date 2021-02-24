@@ -222,7 +222,9 @@ namespace UI
                         }
                     }
 
-                    
+                    Library.OrderDetails orderDetails = repository.GetOrderDetailsById(orderid);
+
+                    orderDetails.Details();
 
                     break;
                 }

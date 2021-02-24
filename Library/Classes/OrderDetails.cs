@@ -63,5 +63,12 @@ namespace Library
 
             return true;
         }
+
+        public void Details()
+        {
+            Console.WriteLine($"This order was created by {this.Customer.FirstName},{this.Customer.LastName} at a store located in {this.StoreLocation.City} {this.StoreLocation.State} on {this.TimeCreated}");
+        }
+
+      
     }
 }
